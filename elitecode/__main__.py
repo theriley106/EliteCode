@@ -45,8 +45,8 @@ if __name__ == '__main__':
 		print("Problems file missing - Please login with Leetcode account to generate personalized problems file:")
 		elitecode.gen_problems()
 	print("\n_____NEW QUESTIONS_____\n")
-	for i, val in enumerate(elitecode.gen_new(DEFAULTS, args['new'])):
+	for i, val in enumerate(elitecode.gen_new(DEFAULTS, int(args['new']))):
 		print("{}. ".format(i+1) + val + "\n")
 	print("\n_____OLD QUESTIONS_____\n")
-	for i, val in enumerate(elitecode.gen_old(args['old'])):
+	for i, val in enumerate(elitecode.gen_old(int(args['old']))):
 		print("{}. ".format(i+1) + val + "\n")
