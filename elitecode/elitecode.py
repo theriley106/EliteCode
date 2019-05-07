@@ -29,7 +29,7 @@ def check_problems_missing():
 def gen_old(countVal=1):
 	count = 0
 	a = []
-	for val in json.load(open("../problems.json"))["stat_status_pairs"]:
+	for val in json.load(open("problems.json"))["stat_status_pairs"]:
 		if val['status'] == "ac":
 			a.append(val['stat']["question__title_slug"])
 			count += 1
@@ -50,7 +50,7 @@ def gen_new(args, countVal):
 	eCount = 0
 	mCount = 0
 	hCount = 0
-	for val in json.load(open("../problems.json"))["stat_status_pairs"]:
+	for val in json.load(open("problems.json"))["stat_status_pairs"]:
 		if val['status'] != "ac" and val["paid_only"] == False:
 			a.append(val['stat']["question__title_slug"])
 	totalQuestions = len(a)
