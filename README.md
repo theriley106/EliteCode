@@ -44,6 +44,12 @@ python elitecode --easy 5 --medium 0 --hard 0
 
 Will only generate unsolved Leetcode questions that are categorized as *easy*.
 
+The program has default weights that are used if no command line arguments are passed:
+
+```javascript
+{'medium': 30, 'hard': 10, 'easy': 60}
+```
+
 ### How do you access my Leetcode question history?
 
 EliteCode sends an authenticated request to the following API endpoint on Leetcode:
@@ -54,3 +60,20 @@ https://leetcode.com/api/problems/all/
 
 This endpoint contains all problem descriptions and your personal Leetcode solution history.  It saves the data locally, and filters out questions that can only be accessed with a Leetcode premium account.
 
+### How do I change the number of questions returned?
+
+```bash
+python elitecode --easy 5 --medium 0 --hard 0 --new 10
+```
+
+or
+
+```bash
+python elitecode --old 10
+```
+
+### How do I regenerate my Leetcode problem list to reflect new questions?
+
+```bash
+python elitecode --regenerate
+```
