@@ -3,6 +3,8 @@ import os
 import requests
 import random
 
+print os.path.dirname(os.path.abspath(__file__))
+
 def gen_problems():
 	res = requests.session()
 	headers = {'Host':'leetcode.com', 'Origin':'https://leetcode.com', 'Referer':'https://leetcode.com/accounts/login/', 'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'}
@@ -20,16 +22,16 @@ def gen_problems():
 	req = res.post(loginurl, data=loginparams, headers=headers)
 
 	x = res.get("https://leetcode.com/api/problems/all/").json()
-	with open('problems.json', 'w') as f:
+	with open(os.path.dirname(os.path.abspath(__file__)) + "/problems.json", "w") as f:
 	    json.dump(x, f, indent=4)
 
 def check_problems_missing():
-	return os.path.exists("problems.json") == False
+	return os.path.exists(os.path.dirname(os.path.abspath(__file__)) + "/problems.json") == False
 
 def gen_old(countVal=1):
 	count = 0
 	a = []
-	for val in json.load(open("problems.json"))["stat_status_pairs"]:
+	for val in json.load(open(os.path.dirname(os.path.abspath(__file__)) + "/problems.json"))["stat_status_pairs"]:
 		if val['status'] == "ac":
 			a.append(val['stat']["question__title_slug"])
 			count += 1
@@ -50,7 +52,7 @@ def gen_new(args, countVal):
 	eCount = 0
 	mCount = 0
 	hCount = 0
-	for val in json.load(open("problems.json"))["stat_status_pairs"]:
+	for val in json.load(open(os.path.dirname(os.path.abspath(__file__)) + "/problems.json"))["stat_status_pairs"]:
 		if val['status'] != "ac" and val["paid_only"] == False:
 			a.append(val['stat']["question__title_slug"])
 	totalQuestions = len(a)
@@ -59,7 +61,7 @@ def gen_new(args, countVal):
 	mediumCount = int((args['medium'] / totalCount) * totalQuestions) / 10
 	hardCount = int((args['hard'] / totalCount) * totalQuestions) / 10
 	#print("Generating Easy: {} Medium: {} Hard: {}".format(easyCount, mediumCount, hardCount))
-	toSearch = json.load(open("../problems.json"))["stat_status_pairs"]
+	toSearch = json.load(open(os.path.dirname(os.path.abspath(__file__)) + "/problems.json"))["stat_status_pairs"]
 	random.shuffle(toSearch)
 	for val in toSearch:
 		#print val["difficulty"]['level']
