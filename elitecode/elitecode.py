@@ -84,6 +84,7 @@ def gen_new(tempArgs, countVal):
 					a.append(val['stat']["question__title_slug"])
 	problemList = []
 	#print("E: {} M: {} H: {}".format(eCount, mCount, hCount))
+	loop = 0
 	for i in range(countVal):
 		x = random.choice(a)
 		while x in problemList:
