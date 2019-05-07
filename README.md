@@ -33,13 +33,13 @@ Will generate random unsolved questions that most likely fall under *easy* or *m
 Meanwhile,
 
 ```bash
-python elitecode -easy 1 -medium 5 -hard 1
+python elitecode --easy 1 --medium 5 --hard 1
 ```
 
 Will generate unsolved questions that most likely fall under the *medium* difficulty, with a small chance of the question being categorized as *easy* or *hard*.
 
 ```bash
-python elitecode -easy 5 -medium 0 -hard 0
+python elitecode --easy 5 --medium 0 --hard 0
 ```
 
 Will only generate unsolved Leetcode questions that are categorized as *easy*.
