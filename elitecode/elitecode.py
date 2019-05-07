@@ -23,16 +23,27 @@ def gen_problems():
 	with open('problems.json', 'w') as f:
 	    json.dump(x, f, indent=4)
 
-def gen_old():
+def check_problems_missing():
+	return os.path.exists("problems.json") == False
+
+def gen_old(countVal=1):
 	count = 0
 	a = []
-	for val in json.load(open("problems.json"))["stat_status_pairs"]:
+	for val in json.load(open("../problems.json"))["stat_status_pairs"]:
 		if val['status'] == "ac":
 			a.append(val['stat']["question__title_slug"])
 			count += 1
-	return "https://leetcode.com/problems/" + random.choice(a)
+	loop = 0
+	problemList = []
+	for i in range(countVal):
+		x = random.choice(a)
+		while x in problemList:
+			x = random.choice(a)
+			loop += 1
+			if loop > 5000:
+				raise Exception("No problems exist")
+		problemList.append(x)
+	return ["https://leetcode.com/problems/" + question for question in problemList]
 
 if __name__ == '__main__':
-	if os.path.exists("problems.json") == False:
-		gen_problems()
-	print gen_old()
+	print gen_old(500000)
