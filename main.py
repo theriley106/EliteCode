@@ -1,6 +1,7 @@
 import json
 import os
 import requests
+import random
 
 def gen_problems():
 	res = requests.session()
@@ -22,6 +23,16 @@ def gen_problems():
 	with open('problems.json', 'w') as f:
 	    json.dump(x, f, indent=4)
 
+def gen_old():
+	count = 0
+	a = []
+	for val in json.load(open("problems.json"))["stat_status_pairs"]:
+		if val['status'] == "ac":
+			a.append(val['stat']["question__title_slug"])
+			count += 1
+	return "https://leetcode.com/problems/" + random.choice(a)
+
 if __name__ == '__main__':
 	if os.path.exists("problems.json") == False:
 		gen_problems()
+	print gen_old()
