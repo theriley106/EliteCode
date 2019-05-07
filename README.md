@@ -4,15 +4,19 @@
 <h4 align="center">Strategically Shuffling Leetcode Questions to Optimize DS&A Study Time</h4>
 </p>
 
-### What does this do?
+### What is the point of this program?
 
-EliteCode sends an authenticated request to the following API endpoint on Leetcode:
+My Leetcode strategy involves doing 2 new Leetcode questions each day, and going back and re-solving an old question that I solved during a previous session.  
 
-```bash
-https://leetcode.com/api/problems/all/
-```
+It's really easy to hit this 2 question target by picking questions that can be solved in a very similar way.  For instance:
 
-This endpoint contains all problem descriptions and your personal Leetcode solution history.  It saves the data locally
+- [231. Power of Two](https://leetcode.com/problems/power-of-two/)
+- [326. Power of Three](https://leetcode.com/problems/power-of-three/)
+- [342. Power of Four](https://leetcode.com/problems/power-of-four/)
+
+To prevent this, I typically use the shuffle feature on Leetcode to pick random questions, but sometimes there will be 2 difficult questions in a row that are categorized as "Hard" and can take an hour or more to solve.
+
+This program strategically shuffles Leetcode questions in a way that optimizes interview preparation/DS&A study time.
 
 ### What does "Strategically Shuffling Leetcode Questions" mean?
 
@@ -40,8 +44,13 @@ python elitecode -easy 5 -medium 0 -hard 0
 
 Will only generate unsolved Leetcode questions that are categorized as *easy*.
 
+### How do you access my Leetcode question history?
 
+EliteCode sends an authenticated request to the following API endpoint on Leetcode:
 
-My Leetcode strategy entails doing 2 new questions, and going back and re-solving an old question each day.  
+```bash
+https://leetcode.com/api/problems/all/
+```
 
-EliteCode makes it really easy to
+This endpoint contains all problem descriptions and your personal Leetcode solution history.  It saves the data locally, and filters out questions that can only be accessed with a Leetcode premium account.
+
