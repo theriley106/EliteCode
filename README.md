@@ -6,7 +6,7 @@
 
 ### What is the point of this program?
 
-My Leetcode strategy involves doing 2 new Leetcode questions each day, and going back and re-solving an old question that I solved during a previous session.  
+My interview preparation strategy involves doing 2 new Leetcode questions each day, and going back and re-solving an old question that was completed during a previous session.  
 
 It's really easy to hit this 2 question target by picking questions that can be solved in a very similar way.  For instance:
 
