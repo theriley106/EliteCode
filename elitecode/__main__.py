@@ -1,11 +1,15 @@
 import elitecode
 import argparse
+import sys
 
 DEFAULTS = {'medium': 30, 'hard': 10, 'easy': 60}
 
 
 
 if __name__ == '__main__':
+	if 'regenerate' in str(sys.argv).lower():
+		print("Regenerating problem set")
+		elitecode.gen_problems()
 	parser = argparse.ArgumentParser(description='Description of your program')
 	parser.add_argument('--new', help='Signifies the number of new questions returned', required=False, default=2)
 	parser.add_argument('--old', help='Signifies the number of old questions returned', required=False, default=1)
@@ -14,10 +18,14 @@ if __name__ == '__main__':
 	parser.add_argument('--hard', help='Signifies the ratio of questions classified as "Hard" in the problem pool', required=False)
 	args = {k: v for k, v in vars(parser.parse_args()).iteritems() if v is not None}
 	multiply = False
+	count = 0
+	for k in DEFAULTS.keys():
+		if k not in args:
+			count += 1
+	if count != 0 and count != 3:
+		raise Exception("Please specify ratios for all 3 types of Leetcode question (--easy, --medium, --hard)")
 	#print args
 	if len(args) > 2:
-		if len(args) != 5:
-			raise Exception("Please specify ratios for all 3 types of Leetcode question (--easy, --medium, --hard)")
 		for key, val in args.iteritems():
 			try:
 				DEFAULTS[key] = float(val)
@@ -32,7 +40,7 @@ if __name__ == '__main__':
 	medium = DEFAULTS['medium']
 	hard = DEFAULTS['hard']
 	# Specifies default args
-	#print("Shuffling Leetcode questions with ratio: E: {} M: {} H: {}".format(easy, medium, hard))
+	print("Shuffling Leetcode questions with ratio: E: {} M: {} H: {}".format(easy, medium, hard))
 	if elitecode.check_problems_missing():
 		print("Problems file missing - Please login with Leetcode account to generate personalized problems file:")
 		elitecode.gen_problems()
