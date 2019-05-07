@@ -47,7 +47,7 @@ def gen_old(countVal=1):
 		problemList.append(x)
 	return ["https://leetcode.com/problems/" + question for question in problemList]
 
-def gen_new(args, countVal):
+def gen_new(tempArgs, countVal):
 	a = []
 	eCount = 0
 	mCount = 0
@@ -56,7 +56,10 @@ def gen_new(args, countVal):
 		if val['status'] != "ac" and val["paid_only"] == False:
 			a.append(val['stat']["question__title_slug"])
 	totalQuestions = len(a)
+	args = {'easy': tempArgs['easy'], 'medium': tempArgs['medium'], 'hard': tempArgs['hard']}
 	totalCount = float(sum(args.values()))
+	if totalCount == 0:
+		raise Exception("Command line argument sum must be greater than 0")
 	easyCount = int((args['easy'] / totalCount) * totalQuestions) / 10
 	mediumCount = int((args['medium'] / totalCount) * totalQuestions) / 10
 	hardCount = int((args['hard'] / totalCount) * totalQuestions) / 10
