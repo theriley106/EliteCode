@@ -62,14 +62,10 @@ This endpoint contains all problem descriptions and your personal Leetcode solut
 
 ### How do I change the number of questions returned?
 
+Simply use the "old" or "new" command line argument to specify the number of questions generated.  For example:
+
 ```bash
 python elitecode --easy 5 --medium 0 --hard 0 --new 10
-```
-
-or
-
-```bash
-python elitecode --old 10
 ```
 
 ### How do I regenerate my Leetcode problem list to reflect new questions?
