@@ -45,5 +45,47 @@ def gen_old(countVal=1):
 		problemList.append(x)
 	return ["https://leetcode.com/problems/" + question for question in problemList]
 
+def gen_new(args, countVal):
+	a = []
+	eCount = 0
+	mCount = 0
+	hCount = 0
+	for val in json.load(open("../problems.json"))["stat_status_pairs"]:
+		if val['status'] != "ac" and val["paid_only"] == False:
+			a.append(val['stat']["question__title_slug"])
+	totalQuestions = len(a)
+	totalCount = float(sum(args.values()))
+	easyCount = int((args['easy'] / totalCount) * totalQuestions) / 10
+	mediumCount = int((args['medium'] / totalCount) * totalQuestions) / 10
+	hardCount = int((args['hard'] / totalCount) * totalQuestions) / 10
+	#print("Generating Easy: {} Medium: {} Hard: {}".format(easyCount, mediumCount, hardCount))
+	toSearch = json.load(open("../problems.json"))["stat_status_pairs"]
+	random.shuffle(toSearch)
+	for val in toSearch:
+		#print val["difficulty"]['level']
+		if val['status'] != "ac" and val["paid_only"] == False:
+			if val["difficulty"]['level'] == 3:
+					if hCount < hardCount:
+						hCount += 1
+						a.append(val['stat']["question__title_slug"])
+			elif val["difficulty"]['level'] == 2:
+				if mCount < mediumCount:
+					mCount += 1
+					a.append(val['stat']["question__title_slug"])
+			else:
+				if eCount < easyCount:
+					eCount += 1
+					a.append(val['stat']["question__title_slug"])
+	problemList = []
+	for i in range(countVal):
+		x = random.choice(a)
+		while x in problemList:
+			x = random.choice(a)
+			loop += 1
+			if loop > 10000:
+				raise Exception("No problems exist")
+		problemList.append(x)
+	return ["https://leetcode.com/problems/" + question for question in problemList]
+
 if __name__ == '__main__':
-	print gen_old(500000)
+	print gen_new({'medium': 30, 'hard': 10, 'easy': 60}, 10)
