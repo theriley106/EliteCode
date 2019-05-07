@@ -24,19 +24,23 @@ For instance:
 python elitecode --easy 5 --medium 3 --hard 1
 ```
 
-Will generate random questions that most likely fall under easy or medium difficulty, with a small chance of the question being categorized as a hard difficulty.
+Will generate random unsolved questions that most likely fall under *easy* or *medium* difficulty, with a small chance of the question being categorized as *hard*.
+
+Meanwhile,
 
 ```bash
 python elitecode -easy 1 -medium 5 -hard 1
 ```
 
-Will generate questions that most likely fall under the *medium* difficulty, with a small chance of the question being categorized as either a medium or hard difficulty.
+Will generate unsolved questions that most likely fall under the *medium* difficulty, with a small chance of the question being categorized as *easy* or *hard*.
 
 ```bash
 python elitecode -easy 5 -medium 0 -hard 0
 ```
 
-Will generate a random Leetcode question categorized as Easy.
+Will only generate unsolved Leetcode questions that are categorized as *easy*.
+
+
 
 My Leetcode strategy entails doing 2 new questions, and going back and re-solving an old question each day.  
 
