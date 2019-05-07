@@ -10,5 +10,5 @@ setup(name='elitecode',
       url='https://github.com/theriley106/EliteCode',
       license='MIT',
       packages=['elitecode'],
-      install_requires=['requests', 'parse']
+      install_requires=['requests']
      )
