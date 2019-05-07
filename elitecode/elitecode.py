@@ -60,7 +60,7 @@ def gen_new(args, countVal):
 	easyCount = int((args['easy'] / totalCount) * totalQuestions) / 10
 	mediumCount = int((args['medium'] / totalCount) * totalQuestions) / 10
 	hardCount = int((args['hard'] / totalCount) * totalQuestions) / 10
-	print("Generating Easy: {} Medium: {} Hard: {}".format(easyCount, mediumCount, hardCount))
+	#print("Generating Easy: {} Medium: {} Hard: {}".format(easyCount, mediumCount, hardCount))
 	toSearch = json.load(open(os.path.dirname(os.path.abspath(__file__)) + "/problems.json"))["stat_status_pairs"]
 	random.shuffle(toSearch)
 	a = []
@@ -80,7 +80,7 @@ def gen_new(args, countVal):
 					eCount += 1
 					a.append(val['stat']["question__title_slug"])
 	problemList = []
-	print("E: {} M: {} H: {}".format(eCount, mCount, hCount))
+	#print("E: {} M: {} H: {}".format(eCount, mCount, hCount))
 	for i in range(countVal):
 		x = random.choice(a)
 		while x in problemList:
