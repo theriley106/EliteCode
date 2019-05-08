@@ -3,7 +3,8 @@
 from distutils.core import setup
 
 setup(name='elitecode',
-      version='1.0',
+		scripts=['bin/elitecode'],
+      version='2.3',
       description='Strategically Shuffling Leetcode Questions to Optimize DS&A Study Time',
       author='Christopher Lambert',
       author_email='lambertcr@outlook.com',
