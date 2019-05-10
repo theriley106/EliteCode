@@ -6,15 +6,13 @@
 
 ### Installation Instructions
 
-Elitecode can be installed from source or from the pip package manager
+Elitecode can be installed from source or from Python's pip package manager:
 
 ``` {.sourceCode .bash}
 $ pip install elitecode
 ```
 
-After installing, you will need to configure Elitecode to provide customized suggestions based on your Leetcode solution history.
-
-To configure Elitecode, simply run with elevated permissions:
+To finalize the installation, simply run elitecode with elevated permissions:
 
 ``` {.sourceCode .bash}
 $ elitecode
