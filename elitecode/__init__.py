@@ -8,9 +8,9 @@ import random
 DEFAULTS = {'medium': 30, 'hard': 10, 'easy': 60}
 
 try:
-    input = raw_input
+	input = raw_input
 except NameError:
-    pass
+	pass
 
 def gen_problems():
 	if os.getuid() != 0:
@@ -33,7 +33,7 @@ def gen_problems():
 
 	x = res.get("https://leetcode.com/api/problems/all/").json()
 	with open(os.path.dirname(os.path.abspath(__file__)) + "/problems.json", "w") as f:
-	    json.dump(x, f, indent=4)
+		json.dump(x, f, indent=4)
 	print("\nProblems Generated.  Elitecode has been successfully configured")
 	exit()
 
