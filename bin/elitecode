@@ -15,5 +15,4 @@ parser.add_argument('--medium', help='Signifies the ratio of questions classifie
 parser.add_argument('--hard', help='Signifies the ratio of questions classified as "Hard" in the problem pool', required=False)
 args = {k: v for k, v in vars(parser.parse_args()).items() if v is not None}
 
-
-print(elitecode.main(args))
+elitecode.main(args)
