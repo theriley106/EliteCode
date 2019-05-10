@@ -10,6 +10,9 @@ DEFAULTS = {'medium': 30, 'hard': 10, 'easy': 60}
 
 
 def gen_problems():
+	if os.getuid() != 0:
+		print("Please rerun script with Sudo/Administrator access")
+		exit()
 	res = requests.session()
 	headers = {'Host':'leetcode.com', 'Origin':'https://leetcode.com', 'Referer':'https://leetcode.com/accounts/login/', 'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'}
 	res.headers.update(headers)
