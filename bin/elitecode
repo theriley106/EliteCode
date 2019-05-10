@@ -13,6 +13,9 @@ parser.add_argument('--old', help='Signifies the number of old questions returne
 parser.add_argument('--easy', help='Signifies the ratio of questions classified as "Easy" in the problem pool', required=False)
 parser.add_argument('--medium', help='Signifies the ratio of questions classified as "Medium" in the problem pool', required=False)
 parser.add_argument('--hard', help='Signifies the ratio of questions classified as "Hard" in the problem pool', required=False)
-args = {k: v for k, v in vars(parser.parse_args()).items() if v is not None}
+try:
+	args = {k: v for k, v in vars(parser.parse_args()).iteritems() if v is not None}
+except AttributeError:
+	args = {k: v for k, v in vars(parser.parse_args()).items() if v is not None}
 
 elitecode.main(args)
