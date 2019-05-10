@@ -7,7 +7,10 @@ import random
 
 DEFAULTS = {'medium': 30, 'hard': 10, 'easy': 60}
 
-
+try:
+    input = raw_input
+except NameError:
+    pass
 
 def gen_problems():
 	if os.getuid() != 0:
@@ -139,7 +142,7 @@ def main(args):
 
 if __name__ == '__main__':
 	if 'regenerate' in str(sys.argv).lower():
-		print("Regenerating problem set")
+		print("Regenerating problem set\n")
 		gen_problems()
 	parser = argparse.ArgumentParser(description='Description of your program')
 	parser.add_argument('--new', help='Signifies the number of new questions returned', required=False, default=2)
