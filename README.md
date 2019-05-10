@@ -4,6 +4,26 @@
 <h4 align="center">Strategically Shuffling Leetcode Questions to Optimize DS&A Study Time</h4>
 </p>
 
+### Installation Instructions
+
+Elitecode can be installed from source or from the pip package manager
+
+``` {.sourceCode .bash}
+$ pip install elitecode
+```
+
+After installing, you will need to configure Elitecode to provide customized suggestions based on your Leetcode solution history.
+
+To configure Elitecode, simply run with elevated permissions:
+
+``` {.sourceCode .bash}
+$ elitecode
+Problems file missing - Please login with Leetcode account to generate personalized problems file:
+
+Username: 
+Password: 
+```
+
 ### What is the point of this program?
 
 My interview preparation strategy involves doing 2 new Leetcode questions each day, and going back and re-solving an old question that was completed during a previous session.  
@@ -25,7 +45,7 @@ Leetcode has a "Shuffle" feature, but it simply generates a random question of a
 For instance:
 
 ```bash
-python elitecode --easy 5 --medium 3 --hard 1
+elitecode --easy 5 --medium 3 --hard 1
 ```
 
 Will generate random unsolved questions that most likely fall under *easy* or *medium* difficulty, with a small chance of the question being categorized as *hard*.
@@ -33,13 +53,13 @@ Will generate random unsolved questions that most likely fall under *easy* or *m
 Meanwhile,
 
 ```bash
-python elitecode --easy 1 --medium 5 --hard 1
+elitecode --easy 1 --medium 5 --hard 1
 ```
 
 Will generate unsolved questions that most likely fall under the *medium* difficulty, with a small chance of the question being categorized as *easy* or *hard*.
 
 ```bash
-python elitecode --easy 5 --medium 0 --hard 0
+elitecode --easy 5 --medium 0 --hard 0
 ```
 
 Will only generate unsolved Leetcode questions that are categorized as *easy*.
