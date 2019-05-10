@@ -34,6 +34,8 @@ def gen_problems():
 	x = res.get("https://leetcode.com/api/problems/all/").json()
 	with open(os.path.dirname(os.path.abspath(__file__)) + "/problems.json", "w") as f:
 	    json.dump(x, f, indent=4)
+	print("\nProblems Generated.  Elitecode has been successfully configured")
+	exit()
 
 def check_problems_missing():
 	return os.path.exists(os.path.dirname(os.path.abspath(__file__)) + "/problems.json") == False
