@@ -7,6 +7,7 @@ import argparse
 if 'regenerate' in str(sys.argv).lower():
 	print("Regenerating problem set")
 	elitecode.gen_problems()
+
 parser = argparse.ArgumentParser(description='Description of your program')
 parser.add_argument('--new', help='Signifies the number of new questions returned', required=False, default=2)
 parser.add_argument('--old', help='Signifies the number of old questions returned', required=False, default=1)
