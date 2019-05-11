@@ -18,13 +18,13 @@ To finalize the installation, simply run elitecode with elevated permissions:
 $ elitecode
 Problems file missing - Please login with Leetcode account to generate personalized problems file:
 
-Username: 
-Password: 
+Username:
+Password:
 ```
 
 ### What is the point of this program?
 
-My interview preparation strategy involves doing 2 new Leetcode questions each day, and going back and re-solving an old question that was completed during a previous session.  
+My interview preparation strategy involves doing 2 new Leetcode questions each day, and going back and re-solving an old question that was completed during a previous session.
 
 It's really easy to hit this 2 question target by picking questions that can be solved in a very similar way.  For instance:
 
@@ -91,4 +91,3 @@ elitecode --easy 5 --medium 0 --hard 0 --new 10
 ```bash
 elitecode --regenerate
 ```
-
